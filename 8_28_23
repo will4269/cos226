@@ -20,3 +20,22 @@ data structs and algorithms
 4 HWs 20%
 1 Midterm as 30%
 1 Final 30%
+
+
+**CLASS BEGINS**
+
+data structure importance:
+what can be solved by their use?
+-code efficiency 
+
+-cpu speed
+-network load
+-memory space
+
+What is a data structure: group of data
+
+ADT {Abstract data type}: set of elements with a collection of well defined operations
+Algorithim : step by step process for solving a problem
+data structure: algorithms use this organzied data bits
+
+ADT{Tree, AVL Tree, hash table, list, etc}
