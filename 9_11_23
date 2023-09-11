@@ -94,6 +94,27 @@ T(n)=O(nlog(n)) as 5nlog(n) is always greater than 3nlog(n)-2n
 T(n)=Omega(nlog(n)) as 1nlog(n)<=nlog(n)+2n(+)
 Theta(nlog(n))
 
+**(+) means positive constant
+-------------------
+T(n)=10nlogn-n
+
+O(nlog(n)) as nlog(n) has a higher complexity rate than n and a C_1 will bring C_1*nlog(N)>=t(n)
+
+9nlog(n)+nlog(n)-n
+
+9nlogn(n)+n(log(n)-1)
+
+log(n)-1 is always >0 when n>10
+
+so that 
+
+9n(log(n))+n(+) n0>10
+
+omega is omega(nlog(n)) c_2 is =<9 as 9nlog(n) <= 9nlog(n)+n(+)
+
+**(+) means positive constant
+
+theta(nlog(n))
 
 
 
