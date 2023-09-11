@@ -117,5 +117,41 @@ omega is omega(nlog(n)) c_2 is =<9 as 9nlog(n) <= 9nlog(n)+n(+)
 theta(nlog(n))
 
 
+---------------------------
+
+note that with log(n)-n n>10 makes it positive to solve the algorithm for big omega sometimes this is unsolvable 
+
+---------------------------
+
+T(n)=3nlog(n)+4n+5log(n)
+
+Big O is O(nlog(n)) as 4nlog(n) will work
+
+Big Omega is difficult 3n(log(n)+1)+n+5log(n), 3n(log(n)) is faster always
+
+theta(nlog(n))
 
 
+
+
+
+
+
+
+
+
+
+
+//////////////////////////
+pseudocode complexity analysis
+
+def find_sum(given_array)
+  total=0                            | assignment 1 -> O(1)
+  for each i in length[given_array]  | increment 1, compare 1 and does the next steps n 
+{n times}
+    total+=given_array[i]            | access 1, increment 1, assignment 1
+  return total                       | return operation 1
+
+T(n)=O(1)+n*O(1)+O(1)
+T(n)=O(1)+O(n)+O(1)
+T(n)=O(n)
