@@ -1,0 +1,83 @@
+quiz on wednesday 9_13_23 lectures 2-4
+
+1 question 2 part {20min}
+
+Lecture 2 covered algorithim complexity
+
+T(n) runtime of the algorithim
+
+Big O
+upper bound on run time
+T(n)=O(g(n))
+T(n)<=g(n)
+
+can be things like 2^n or n^2 [may need to do coefficents of n^2 and such like 6n^2 + 2n + 3]
+
+focus on getting a big O approximation as close to the smallest error as possible. 
+
+big o can be
+O(1) | constant
+O(n) | linear
+O(n^2) | quadratic
+O(n^3) | cubic
+O(2^n) | exponential
+
+**review big O properties**
+O(1)+O(n)+O(n^3)=O(n^3) //add use the biggest dominant
+O(log(n))*O(1)=O(log(n) //constant multiple 
+O(n)*o(n^3)=o(n^4) //multiply together
+//transitivity T(n)=O(n) and T(n)=2f(n) 2f(n)=O(n)
+
+----------------------------------------------------
+
+Big Omega
+
+**as long as no can be found that t(n)>=cg(n)
+
+same g(n) as big O
+T(n)=Omega(c*g(n))
+T(n)>=c*g(n)
+
+find best case close to T(n)
+
+----------------------------------------------
+
+Big Theta
+
+
+
+---------------------------------------------
+EX
+
+T(n)=3n^2+n
+T(n)=O(n^2), because there exists an n0 and c1 so that T(n)<=c*n^2 ex n0=30 c1=4
+T(n)=Omega(n^2), because there exists and n0 and c2 so that T(n)>=c*n^2 ex n0=30 c2=3
+
+----------
+EX2
+
+T(n)=O(n^) means that there is no1,n02 and c1,c2
+so that
+
+no1 c1*n^2>=T(n)>=co*n^2 no2
+O(n^2)>=T(n)>=Omega(n^2)
+
+so that T(n)=theta(n^2)
+-------------
+Ex3
+
+T(n)=2n^3 + 4n^2 + 5
+
+cubic+quad+constant -> O(n^3)
+
+O is O(n^3) so that ex n0_1=yy c_1=3
+
+Omega is Omega(n^3) so that ex no_2=zz c_2=2 as 2n^3 is always less than 2n^2 in terms of growth
+
+theta(n^3) as there is a c between c_1 and c_2 that makes it track inbetween
+
+
+
+
+
+
