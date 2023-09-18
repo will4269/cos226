@@ -1,0 +1,152 @@
+HW 1 done
+
+Big Theta stuff
+
+How it cannot exist
+
+///////
+
+Example of recursion 
+Factorial
+
+simple function of computing the value of the factorial function n!
+
+n= {n*(n-1}! if n>=1
+  {1} if n=0
+
+T(n)-> function of factorial n
+
+fact(n)
+  if n==0 
+    return 1
+  else
+    return n*fact(n-1)
+
+T(n)=n*T(n-1)
+
+if n=0 -> T(n)=O(1)
+else n>=1 T(n-1)+c
+
+
+-----
+common reccurence equation
+Binary search T(n)=T(n/2)+c T(n)=O(logn)
+Sequential Search T(n)=T(n-1)+c=O(n)
+Tree Traversal T(n)=2T(n/2)+c=O(n)
+Selection sorts T(n)=T(n-1)+c1*n+c2=O(n^2)
+Mergequick T(n)=T(n/2)+C1*n+C2=O(nlogn)
+-------
+
+solving recursions
+
+tree method
+
+(N+1) activities as the parameter decreases from n to n-1 in the second call ....
+
+nN!=*(n-1)*(n-2)*(n-3)*.....(1), T(n)=n*(O(1))=O(n)
+
+master solution basis
+
+let t(n) be a nonatomically increasing function such that
+T(n)=a(T(n/b))+f(n) | a is constant
+T(1)=1
+
+if f(n)=theta(n^2)
+
+T(n)=10T(n/9) +2N^3
+
+A=10
+B=9
+f(n)=2n^3
+
+T(n)=T(n/2)+2n+1
+
+A=1
+B=3
+f(n)=2n+1
+
+
+-------------------
+
+T(n)= [ Theta(n^(logb{a})) if a?b<2m Theta(n^c * log2(n)) if a=b^c, Theta(n^c) if a<b^c]
+
+f(n)=theta(n^c) = theta(1) = theta(n^0) -> c=0
+
+a=1 b=2  c=0
+
+1=2^0 -> 1=1
+
+T(n)=theta(n^c[log2(n)])-> theta(log2(n))
+
+/////////////////////////////////////////
+Recurrence equation
+R(n)=3T(n/2)+6n^2
+
+a=3,b=2,f(n)=6n^2
+
+a=3
+b=2
+f(n)=6n^2
+
+T(n)=O(n^2)=Omega(n^2) -> Theta(n^2)
+
+f(n)=Theta(n^c) -> c =2
+
+a=3 -> b=2 -> c=2
+
+3?2^2 , 3?4, 3<4 check 
+
+first case
+
+n^log2(2)
+
+
+//////////////////////////////////////////
+
+T(n)=6t(n/3)+10n
+
+a=6
+b=3
+f(n)=10n
+
+f(n)=O(n)=Omega(n)
+
+theta(n)=f(n)
+c=1
+
+6>3^1
+6>3^1
+
+a>b
+
+theta(n^log3(6))
+last case
+theta(n^1)=T(n)
+
+
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+binary search
+
+for given sorted list
+nd indexable sequence 
+.
+
+binary search provides an efficent way to search for target value
+is list empty? 
+- find middle element mid=floor[high+low/2]
+is middle=target? fone
+is target>middle search right half -> mid to high
+is target<middle search left hald -> low to high
+
+
+///////////////////////////////////////////////////////
+binary search algorithm
+-base call -> O(1)
+-recursive call O(1)
+
+n-> n/2^1 -> n/2^2 -> n/2^k , k=log2(n)
