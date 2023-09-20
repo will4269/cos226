@@ -1,0 +1,186 @@
+Quiz 1 Feedback
+-----------------
+
+Base of Fibonacci Sequence
+
+{F0=0 F1=1}
+
+Fn=Fn-1 + Fn-2 (n>=2)
+
+T(n)=T(n-1)+T(n-2)+O(1)
+
+T(n-2)=T(n-3)+T(n-4)+O(1)
+
+Runtime Complexity: A recurisve algorithim can be computed O(2^n) time
+
+-2 recursive call per recursive call
+
+-> exponential number of recursive calls
+
+Call on 2: call on 1, call on 0 = 3 calls
+
+Call on 3: call on 2, call on 1
+
+{call on 2 is 9 calls}
+
+Call on 3: call on 2, call on 1 = 5 calls
+
+call on 3: call on 1 + call on 0, call on 1 = 5
+
+{call on 1 is 2}
+
+call on 5: call on 4, call on 3 = 15 calls
+
+calls double for every increase of n | so cal lon n >2^n/2 -> T(n)=O(w^n)
+
+there are more efficent algorithims
+
+-------------------------------------------------------
+
+hashing
+
+an algorithim that maps large data sets, called keys, to smaller data sets of a fixed length
+
+a hash table 
+
+is a data structure that use a hash function to efficently map keys to values for efficent search and retrieval.
+
+a given key (k) a hash function (h) maps k to a code c
+
+h(k)->c
+
+takes key and opens up hash table to variable compressed data.
+
+however 
+1: may need to find a good hash function
+2: range of hash table > buckets (collision err prevention)
+
+-
+need compression map
+- always hash code to bucket
+- independent original key
+when tables changes on;y compression function needs to be changed
+
+*
+
+Hash table: phone number example 
+
+h is hash table 
+
+data1 (66752378) h-> 237
+
+data2(68744483) h -> 338
+
+m~=n # of keys stored in directories
+
+hash fucntion h:u {0,1,2,3,4,........,m-1} [c]
+
+u="universe keys"
+
+hash tabe T |0|1|...|k2|...|k2|....| until m-1 length
+
+collision 2 or more pieces of data get the same key data 1 and data 3 go into the same location
+
+Ki,Kj collide if h(ki)=h(kj) if data from 2 different keys are the same value
+
+----
+
+good hash functions
+
+-fast to compute
+-scatter keys evenly throughout hash table
+-less collisions
+-need less slots (space)
+
+bad hash function
+select digits 7 and 1 for index: bad as other values can swap around 67855555555 vs 67854555555
+
+---
+how to define a hash function?
+
+uniform hash functions:
+
+distributes keys uniformly in the hash table in [0,x), we map them to a hash table of size m (m>x) using hash function below
+
+h(k)=[k*m/x] {k is k value 0<=k<=# of buckets m} m<x buckets<keys, requires a loading factor
+
+n=#of keys in table
+a=laoding factor = n/m (100keys/10buckets)=10
+m=#of slots in table
+
+-------
+Division method
+
+use modulus to map an interger between 0 and m-1
+
+h(k)=k mod m
+
+h(5)=5 mod 10 = 5
+h(15)=15 mod 10 = 5
+h(11) = 11 mod 10 = 1
+
+ex
+
+insert keys 10,21,30,45, 49}
+with m=10
+h(10)=10 mod 10=0
+h(21)=21 mod 10=1
+h(30)=30 mod 10 = 0
+h(45)=45 mod 10 = 5
+h(49)=49 mod 10 = 9
+
+30 and 10 collisions 
+
+*effectively select digits*
+
+---------------how to pick table size m
+
+m is power of 2^n -> last n bits of key
+
+if m is power of 10 or 10^n last n digits
+
+instead pick a prime number close to a power of 2, to be m
+
+
+----------
+
+example h(k)=5 mod 5
+
+{10,5,7,11,12}
+
+0,0,2,1,2 are the respective values of the keys/indexs 
+
+solved in class 2 collisions
+
+
+-----------
+linear probing
+
+take a collision look for empty spot then toss in collision
+|10|5|7|11|12
+
+10 in slot 0
+5 collides next slot [1]
+7 in slot 2
+11 tries slot [1] collides goes to [3]
+12 tries slot [2] collides goes to [4]
+
+
+
+|||||||||||||||||||||||||||||||||||||||||
+
+question 1: missed notation of T(n)>=O(n^3), because I was asked to find g(n) that T(n)>=cg(n)
+
+g(n) was equal to O(n^3) that is why i wrote O(n^3)
+
+question 2:
+
+i got n0 write at ~20 at 19
+
+I said f(n)>g(n) is true after n0=19
+
+{Relating to complexity which wasn't asked}
+
+c=1 such that g(n)=c(f(n))
+
+
