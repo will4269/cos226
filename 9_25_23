@@ -113,17 +113,78 @@ insert key 29
 m=11
 
 *linear probing*
+h(k,i)=h(k)+i%m-> k%m + i%m
 h(29,i) -> h(29,0) -> h%m + i%m -> 29%11+0%11 -> 7 *collision* 16
-h(29,1) -> h%m + i%m -> 29%11+1%11 -> 8 *collision* 15
-h(29,2) -> h%m + i%m -> 29%11+2%11 -> 9 *no collision* insert
+h(29,1) -> h(29)%m + i%m -> 29%11+1%11 -> 8 *collision* 15
+h(29,2) -> h(29)%m + i%m -> 29%11+2%11 -> 9 *no collision* insert
 return 9
 done 3 probes
 
 *quadratic probing*
+h(k,i)=h(k)+i^2%m-> k%m + i^2%m
 h(29,i) -> h(29,0) -> h%m + i^2%m -> 29%11+0^2%11 -> 7 *collision* 16
 h(29,1) -> h%m + i^2%m -> 29%11+1^2%11 -> 29%11 + 1%11-> 8 *collision* 15
-h(29,2) -> h%m + i^2%m -> 29%11+2^2%11 -> 29%11+4%11-> 11 *outside of array* by 1 loops back 11-10
-index 1 is open 
-return 1
+h(29,2) -> h%m + i^2%m -> 29%11+2^2%11 -> 29%11+4%11-> 11 *outside of array* by 1 loops back 11-10 to first index
+index 0 is open 
+return 0
 done 3 probes
+
+
+*keep going*  until linear does 1 full revolution through array
+
+quadrtic -> end at 11
+
+==========================
+double probing
+ instead of probing linearly or quadratically we can use a second hash function generate different probe setpoints
+
+h(x,i)=(h(x)+i*h_2(x)))modm
+i=0 h(x,0)=h(x)%m
+i=1 h(x,1)=(h(x)+1*h_2(x))%m
+i=2 h(x,1)=(h(x)+2*h_2(x))%m
+
+----------------
+
+h(x)=x%7
+h_2(x)=x%5
+
+[14, ,  , ,18, , ]
+m=7
+
+place 21
+
+h(x,i)={h(x)+i*h_2(x)}%m={x%7+i(x%5)}%7
+
+h(21,0) = {21%7 + 0*(21%5) }%7 -> 0 in use
+h(21,1) = {21%7 + 1*(21%5) }%7 -> (0+1)%7 -> 1 not in use
+return 1
+
+insert 29 
+[14,21, , ,18, , ]
+h(x,i)={h(x)+i*h_2(x)}%m={x%7+i(x%5)}%7
+h(29,0) = {29%7 + 0*(29%5) }%7 -> {1+0}%7 -> 1 in use
+h(29,1) = {29%7 + 1*(29%5) }%7 -> {1+4}%7 -> 5 not in use
+return 5
+
+----------------
+
+Example: 
+
+Illustrate the result of the inserting keys {10,22,35,15,48}
+m=10
+h(k)=k mod m
+h_2(k) 2-( k mod 2)
+
+h(k,i)={h(k)+i*h_2(k)}modm
+
+h(10,0)={h(10)+0*h_2(10)}mod 10={10 mod 10 + 0}mod 10-> 0 *fits*
+[10, , , , , , , , , ]
+h(22,0)={h(22)+0*h_2(22)}mod 10={22 mod 10 + 0}mod 10-> 2 *fits*
+[10, ,22, , , , , , , ]
+h(35,0)={h(35)+0*h_2(35}mod 10={35 mod 10 + 0}mod 10-> 5 *fits*
+[10, ,22, , ,35, , , , ]
+h(15,0)={h(15)+0*h_2(15}mod 10={15 mod 10 + 0}mod 10-> 5 *collision*
+h(15,1)={h(15)+1*h_2(15}mod 10={15 mod 10 + 1*(2-15 mod 2)}mod 10->  (15mod10 + 1*1)mod10->6 *fits*
+h(48,1)= .... 8 *fits*
+
 
