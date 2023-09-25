@@ -1,0 +1,73 @@
+hashing in Lecture 7 and Lecture 8
+No recursive stuff
+
+Hashing->is an algorithim that maps large data sets of variable length, called keys, to to smaller data sets of a fixed length
+
+Hash table-> a data structure that uses a has function {h()} to efficently map keys {k} to values {c}
+
+
+m-> number of buckets [# of indexes in table]
+
+------------------------
+Recap: A common challenege in hashing (hash table) is collisions
+
+that is Ki and Kj -> h(Ki) and h(Kj) result into the same bucket c
+
+To solve this issue use linear probing:
+
+consider storing key in bucket B
+
+h(k)=k%m, m=b
+
+if no collision h(k) returned value store in bucket at Table[b]
+
+else
+take h(k) returned value add 1 and check table[b], repeat until success
+
+effectively try(h(k)+i)%m if fail increment i, else return value (h(k)+i)%m
+
+
+////insert keys=/18,14,21,1,25/ table is 7 indexes m=7
+
+start at i=0
+
+h(k,i)=(h(k)+i)%7 
+
+h(18)%7 -> 4
+[0,0,0,0,18,0,0] *fits*
+h(14)%7 -> 0
+[14,0,0,0,18,0,0] *fits*
+h(21)%7 ->0
+[14,0,0,0,18,0,0] *collision*
+add one to retuned value
+h(21+1)%7 -> 1
+[14,21,0,0,18,0,0] *fits*
+h(1)%7-> 1
+[14,21,0,0,18,0,0] *collision*
+add one to returned value
+h(2)%7 -> 2
+[14,21,1,0,18,0,0] *fits*
+h(25)%7 -> 4 
+[14,21,1,0,18,0,0] *collision with 18*
+h(25+1)%7
+[14,21,1,0,18,25,0] *fits*
+
+
+////example 2 
+
+using linear probing insert key 15
+[0,0,13,0,25,5,37,16,0,8,21] {zero means pen}
+
+h(15,i)=h(15)+i%11 -> (15%11)+0 %11 -> 4
+index 4 has 25
+h(15,1) -> (15%11)+1%11 -> 5 collides
+h(15,2) -> (15%11)+2%11 -> 6 collides
+h(15,3) -> (15%11)+3%11 -> 7 collides
+h(15,4) -> (15%11)+4%11 -> 8 open
+
+15 goes into bucket 8
+
+
+
+
+
