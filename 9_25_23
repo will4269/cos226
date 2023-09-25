@@ -69,5 +69,61 @@ h(15,4) -> (15%11)+4%11 -> 8 open
 
 
 
+Excersise:
 
+Using linear probing first delete 21 and afterward find 35:
+m=7
+[14,21,1,35,18, , ]
+
+look for 21 h(21,0) till h(21,i) buckets returns the bucket that 21 is in
+
+h(21,0) -> h(21) + i%7 -> 21%7 + 0%6 =0
+h(0) != 21
+h(21,1) -> h(21) + 1%7 -> 21%7 + 1%7 = 1
+h(1) = 21
+delete
+
+now find 35
+h(35,i) -> h(35,0) -> h(35)+0%7 -> 0+0 -> 0 index is not 35
+h(35,1) -> 35%7 + 1%7 -> 1 index is not 35
+h(35,2) -> 35%7 + 2%7 -> 2 index is not 35
+h(35,3) -> 35%7 + 3%7 -> 3 index is 35
+return value or code {3}
+
+
+=============
+back to example 2
+
+inserting 15 took 5 probs
+i=0,1,2,3,4
+
+
+
+quadratic probing
+
+h(k,i)=h(k)+i^2 %m = k%m + i^2%m
+i=0,1,2 h(k,0) h(k,1) h(2,4) ....
+
+end condition is either in bucket or number of loops around
+
+-----------------
+
+insert key 29 
+[ , ,13, ,26,5,37,16,15, ,21]
+m=11
+
+*linear probing*
+h(29,i) -> h(29,0) -> h%m + i%m -> 29%11+0%11 -> 7 *collision* 16
+h(29,1) -> h%m + i%m -> 29%11+1%11 -> 8 *collision* 15
+h(29,2) -> h%m + i%m -> 29%11+2%11 -> 9 *no collision* insert
+return 9
+done 3 probes
+
+*quadratic probing*
+h(29,i) -> h(29,0) -> h%m + i^2%m -> 29%11+0^2%11 -> 7 *collision* 16
+h(29,1) -> h%m + i^2%m -> 29%11+1^2%11 -> 29%11 + 1%11-> 8 *collision* 15
+h(29,2) -> h%m + i^2%m -> 29%11+2^2%11 -> 29%11+4%11-> 11 *outside of array* by 1 loops back 11-10
+index 1 is open 
+return 1
+done 3 probes
 
