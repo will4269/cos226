@@ -1,0 +1,32 @@
+end of terrains
+
+now into Objects
+
+all things in unity are objects
+
+everything inherits from GameObject
+
+Our HW
+-terrain
+-camera
+-cube
+-trees and details meshes
+
+objects -> items, vehicles, structures
+
+create a blank object
+
+GameObject->Create Empty
+
+Transform attribute 
+-location
+-rotation
+-size
+
+Vector3 is the object rotation
+an object can be rotated along an axis
+scale is the object size (multiplier)
+
+box collider -> an object cant pass through collision
+
+colliders as are used with triggers
