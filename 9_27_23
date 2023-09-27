@@ -1,0 +1,31 @@
+chaining for hash table:
+
+when we have a number of keys that return the same hash value
+
+h(k1)=1
+go to the hash table, and i try to link bucket 1 to this key
+h(k2)=1
+h(k4)=1
+
+attach key 1 to key 2 to key 4 under a linked list struct
+
+h(k3)=4 
+goes in at 4
+
+worst case for chaining is n as it has to traverse all data entries O(n)'
+
+loading factor
+a=n/m measures how full the hash table is
+
+when chaining 
+
+the table size is equal to the number of the total linked list
+a would be the average number of the linked list
+
+performance of chaing
+
+find(key): finds key from the list tables: O(1+a) time on average
+
+Remark: if a is a constant or bounded by a constant O(1)
+
+deleting takes O(2+a) on average
