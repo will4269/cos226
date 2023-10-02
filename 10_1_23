@@ -1,0 +1,65 @@
+Single-Linked list
+
+head-ptr to each point which each point contains data + pointer to next 
+at the end is a null pointer
+
+Doubly-linked list
+
+head-ptr into list
+null-ptr out of list (both ends)
+tail-ptr into back end of list
+
+each point cotains (forward pointer, data, reverse pointer)
+
+---------------------------------------------------------
+
+Skip list:
+
+randomized data structure
+
+advatages -easy and random choices to create and maintain list
+-contains dybamic set of data n
+in O(logn) on average
+
+Structure: one linked list
+
+searching: O(n)
+
+how can this be sped up?
+
+2 sorted linked lists
+
+L0-> contains all elements (keys}
+L1-> contains some elements (keys)
+
+each element can appear in L1 or L1 and L2
+
+Example: Subway
+
+Express line
+  Lower number of stations
+  
+local line
+  connects all stations
+
+the link between lines at common stations
+
+local line
+
+|14|->|23|->|34|->|42|->|50|->|59|->|66|->|72|->|79|
+
+Express line
+
+|14|->->->|34|->|42|->->->->->->->->->|79|
+
+---------------------------------------
+
+start at 14
+going to 50
+
+take express 14->42, 42->50 local line
+
+must be sorted
+
+
+
