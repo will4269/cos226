@@ -46,3 +46,11 @@ height: the longest path to that node from the leaves
 
 depth: from root to a node length
 
+tree traversal
+
+Pre-order root-left-right
+
+in order left-root-right
+
+post order right-root-left
+
