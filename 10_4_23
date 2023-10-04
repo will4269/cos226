@@ -1,0 +1,48 @@
+HW 2 questions:
+
+How long should the lists be?
+
+sanity check length 5 will do [check]
+
+What should be in the sorted lists? (I presume integers/numerics)
+
+Number-based is fine [check]
+
+
+
+
+Quiz 3 [linked list - skip lists] 20min ~2questions
+
+Skip list continued
+
+height of length list  O()= h*(n)^(1/h)=o(log(n)
+
+inserting into a skip list:
+
+pretend it is already there and search for it,
+
+constructing a linked list
+
+take the log of the number of data 
+
+log(x)=height of list
+
+begin insertion from empty struct
+
+
+If deleting, delete point in bottom layer and layers above in tower.
+
+--------------------------
+
+trees
+
+path: distance between points on trees (one less than total # of points)
+
+siblings: children of the same node are siblings
+
+subtree: a tree within a tree
+
+height: the longest path to that node from the leaves
+
+depth: from root to a node length
+
