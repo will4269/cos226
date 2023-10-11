@@ -1,0 +1,41 @@
+Quiz 3 [linked list - skip lists] 20min ~2questions
+
+Linked lists
+
+2 can exist single linked list or double linked list
+
+Singly: one direction Head to Tail
+
+Advangtage: Less memory [data + pointer down]
+Disadvantage: Slower to find or work on {know less}
+
+Doubly: bi direction head only
+
+advantage: faster to find things 
+disadavantage: eats up memory [data + pointer up + pointer down]
+
+9 says linked list but includes nothing
+**maybe review HW that exists
+
+or principles of removal, insertion, sorting, appending, etc
+
+\\\\\\
+skip lists
+lec 10-11
+DS is basically a "randomized" dynamic search structure. The structure is ideally based upon popularirty i believe but will be created here through random assignment.
+
+contains dynamic set of n elements with O(logn) 
+
+these use binary search and stacks of layers
+effectively use the exclusive property of > and < to speed up process of data access
+
+concept of search cost |L1|+|L0|/|L1| has to read L1 and then a smmall chunk of L0
+2 layer = 2*(sqrt(n))
+
+log(n) layers = log(n)*(n)^(1/log(n)) = O(logn)
+
+to insert into a skip list:
+search, find posistion, insert point, insert point from bottom layer up with chance of 0.5 probability per layer
+
+to delete into a skip list:
+find and remove [update pointers as list construct]
