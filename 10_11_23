@@ -1,0 +1,158 @@
+Binary search:
+recall binary search of a sorted list
+ am i at the point, look left or right if < or >
+
+ Binary search trees:
+   nodes: attributes
+       keys: value
+       left child
+       right child
+
+let i be a node
+let i have a left and right child
+for left child, every j node that belongs to the left child {subtree} has smaller value than node i
+j.value<<i
+for right child, every j node so that j.value>>i.value
+
+searching k.node
+
+if root=key
+  return true
+if not root=key
+  if < root 
+    go left
+  if > root
+    go right
+
+
+
+    deletion
+    if 20 has 2 kids 17-> 2 and 30
+    delete 20
+
+    if (leaf) just delete
+    if (one child only) replace with child
+    if (has 2 children) replace with child in order <left root right>
+
+
+    tree
+                                    40
+                                    
+                              20          70
+                              ||
+                           17    30     45    93
+                        2  |                 90 |
+    delete 20
+                                    40
+                                    
+                              17          70
+                              ||
+                           2    30     45    93
+                                          90 |
+
+  Tree
+                                    44
+                        17          ||           88
+                8               28               ||
+                                 |19           65  97
+                                              |/|    |
+                                          54/82    93
+                                              ||
+                                            76/83 
+                                            ||/
+                                          68/80
+
+delete 88
+                                    44
+                        17          ||           88
+                8               28               ||
+                                 |19            65/97
+                                             |/|   |/
+                                            54/82 93
+                                               /||
+                                               76/83 
+                                               ||/
+                                              68/80
+
+
+88 in order
+
+54-65-68-76-80-82-83-88-93-93-97
+88 node is deleted 83 goes up
+
+                                     83
+                                     |/|
+                                    65 \ 97
+                                  |\|    |\
+                                 54  82  93
+                                     |/
+                                    76
+                                    |/|
+                                  65   80
+unique tree creation
+
+insert  50, 15, 44, 28, 85, 57, 100, 92, 12, 72
+delete 28
+
+root = 50
+                        50
+15 is less than 50
+                         50
+                         |/
+                      15 
+44 is less than 50, but greater than 15
+                         50
+                         |/
+                      15 
+                      /|
+                        44
+28 is less than 50, but greater than 15, but less than 44
+                         50
+                         |/
+                      15 
+                      /|
+                        44
+                        |/
+                        28
+85 is greater than 50
+                         50
+                         |/|
+                      15  / 85
+                      /|
+                        44
+                        |/
+                        28
+57 is greater than 50, less than 85
+                           50
+                           |/|
+                      15    /   85
+                      /|    /   |/
+                        44     57
+                        |/
+                        28
+100 is greater than 50, greater than 85
+                           50
+                           |/|
+                      15    /   85
+                      /|    /   |/|
+                        44     57/100
+                        |/
+                        28
+92 is greater than 50, 85, less than 100
+                           50
+                           |/|
+                      15    /   85
+                      /|    /   |/|
+                        44     57/100
+                        |/       /  |/
+                        28           9
+
+12 is less than 50, and 15,
+
+O(h) for search
+O(h) for insert h is height of tree
+
+                                    
+  
+
+    
