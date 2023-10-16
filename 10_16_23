@@ -1,0 +1,212 @@
+AVL tree structure and implementation, 
+
+AVL tree
+
+[Adelson - Velsky - Landis tree]
+
+Binary search tree
++The heights of the right subtree and the left subtree of a root differs by at most +/- 1.
+
+               root
+               /|\
+              L | R
+            /|\ | /|\
+          a    b|c   d
+          same height balanced
+
+        Balance factor = 0
+          
+               root
+               /|\
+              L | R
+            /|\ | /|\
+          a    b|   
+          |h(r)-h(l)|<=|1|
+
+          balance factor = -1
+
+          if right taller +
+          if right shorter -
+https://media.geeksforgeeks.org/wp-content/uploads/minHeightTree.png
+
+data:image/png;base64,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
+
+rebalance on insertion and deletion 
+
+to maintain the height of the AVL tree
+
+h=log2(n)
+
+left-high/right-high
+
+A node is said to be left-high if the left subtree has a greater height than the right. and vice-versa
+
+
+           0                    0      [Unbalaced]
+          /|\                  /|\
+        1    2                1        [Left heavy]
+        AVL {Yes}            /|
+                            2           [Balanced]
+                            AVL {no}
+
+
+                          0            [balanced left heavy AVL tree]
+                        / | \
+                      0       0
+                    /|\       /|
+                  0     0   0
+                 /|\   /|\
+                0   0 0   0
+
+cant have a non-AVL tree within an AVL Tree
+
+                           0           Not an AVL tree
+                          /|\
+                        0  |  0        Non-AVL
+                      /|       |\
+                    0  |   |   |  0    left,righ heavy
+                  /|   |   |   |  |\
+                0  |   |   |   |  |  0 [Balanced]
+
+
+\\\\\\\\\\\\\\\\\\
+tree
+                           0          
+                        /  |  \
+                      0    |    0  
+                  /|\      |   /|\
+                0  |  0    |  0 | 0
+               /|\ | /|\   |  /      \
+              0  0 | 0  0  | 0  |     0
+                                     /|
+                                    0
+                                  /|\
+                                  0|0
+heights
+                           4          
+                        /  |  \
+                      2    |    3  
+                  /|\      |   /|\
+                1  |  1    |  1 |    2 {This 2 breaks AVL}
+               /|\ | /|\   |  /     /|
+              0  0 | 0  0  | 0  |   |
+                                    |
+                                    1
+                                  /|\
+                                  0|0
+
+   weight               Not AVL          
+                        /  |  \
+                      b    |    [Bad tree]  
+                  /|\      |   /|\
+                b  |  b    |  LH |    super left heavy
+               /|\ | /|\   |  /     /|
+              b  b | b  b  | b  |   |
+                                    |
+                                    b
+                                  /|\
+                                  b|b                                  
+                                  
+                       if childless BF=0
+                       if one child BF=Height
+                       if two children BF=|Hr-Hl|
+
+    Rotation:
+
+    Tree rotation: modifies the structure without affecting in-order traversal.
+
+                         y
+                        /|\
+                      x    t3
+                     /|\
+                    t1  t2  
+
+              T1,X,T2,Y,T3
+  right rotation of y
+  RR(y)
+
+                         x
+                        /|\
+                     t1     y
+                            /|\
+                          t2   t3 
+  T1,X,T2,Y,T3
+
+  LR(x) to get it back
+
+  T1,X,T2,Y,T3
+
+
+RR(20)
+
+                     20
+                    /|\
+                  18    40
+                /|\
+              3    19
+
+          3,18,19,20,40
+
+
+                    18
+                    /|\
+                  3    20
+                       /|\
+                      19  40
+
+Ex2
+LR(20)
+                     20
+                    /|\
+                  18   40
+                      /|\
+                    30    50
+
+
+                    40
+                    /|\
+                  20   50
+                 /|\
+                18  30
+
+  EX3
+                     30
+                    /|\
+                  10   50 
+                /|\      /|\
+              8    15   44   56
+            /
+          2
+
+heights
+
+                     3
+                    /|\
+                  2       1
+                /|\      /|\
+              1    0   0   0
+            /
+          0
+BF
+
+                     1
+                    /|\
+                 1        1
+                /|\      /|\
+              1    0    0   0
+            /
+          0                
+          
+                    AVL Tree
+
+                    Exercise
+
+                    right rotate 30
+
+                10
+               /|\
+                  30
+                   |\
+                     50
+                    /|\
+           
