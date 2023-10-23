@@ -1,0 +1,67 @@
+AVL tree HW3
+
+Double rotations
+
+right-left rotation
+
+                30
+                  \
+                    40 [start right at 40]
+                  /
+                35 [then left rotate at the 35]
+
+step 1
+                30
+                  \
+                    35
+                      \ 
+                       40
+step 2
+                 
+                
+                    35
+                   /  \ 
+                30      40
+
+Left-Right rotation            
+
+                    40
+                  /
+                30
+                 \
+                   35
+
+
+step 1 [left]
+                   40
+                  /
+                35
+              /
+            30
+step 2 [right]
+            35
+          /    \
+        30      40
+
+
+Pre {root,left,right]
+in {left,root,right]
+post {left,right,root]
+
+orders
+
+                  30
+                /   \
+              20     40
+            /   \  /   \
+          10    25 35    50
+
+pre        30-20-10-25-40-35-50
+post       10-25-20-35-50-40-30
+in         10-20-25-30-35-40-50
+level      30-20-40-10-25-35-50 {scan down level by level}
+in         10-   
+
+
+
+        
