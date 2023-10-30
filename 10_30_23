@@ -1,0 +1,66 @@
+MIDTERM 1-17 (today) up to AVL tree
+
+delete 38 excercise
+https://media.discordapp.net/attachments/750096060822716507/1168612234138755082/image.png?ex=655265f4&is=653ff0f4&hm=049abd33b47a9aa49cd3a7f130e7263742ec7b4a2897378600cb185d41a91a15&=
+
+result
+https://cdn.discordapp.com/attachments/750096060822716507/1168612459515490354/image.png?ex=6552662a&is=653ff12a&hm=bf910002a865780a99e83a1fcb019c80a67e4d30c7b5dd44771130093e900514&
+
+
+must write down rotation and node rotated
+
+insert(40,20,10,25,30,22,50)
+insert 40
+                  40
+insert 20
+                  40
+                /
+              20
+insert 10
+                   40                              20
+                  /                               /   \
+                20            RR(40)            10      40
+              /
+            10
+insert 25            
+         20
+        /  \
+      10    40
+            /
+          25   [
+insert 30
+         20                                           20                                 20         {20|h=2,BF=1 [Right heavy 1]}
+        /  \                                         /  \                               /  \
+      10     40 {h=1,BF=2} Bad error -> LR(25)     10     40 ->RR(40)                 10    30      {10|h=0,BF=0, 30|h=1,BF=0}
+            /                                            /                                  /  \
+          25  {h=1,BF=1}                                30                                25     40 {25|h=0,BF=0,40|h=0,BF=0}
+            \                                           /
+            30 {h=0,BF=0}                              25
+        
+insert 22
+
+            20                                20                                       25           Balanced
+          /    \                             /  \                                     /  \
+        10      30           ->RR(30)       10   25            ->LR(20)              20   30   balanced,RH
+              /    \                             / \                                / \     \
+            25      40                          22  30                             10 22     40
+          /                                           \
+        22                                             40
+insert 50
+
+    25                                          25
+   /  \                                        /   \
+  20   30  ->LR(30)                          20     40
+ / \     \                                  /  \     /\
+10 22     40                               10  22   30  50
+            \
+             50
+
+using zig or zag causes the BF to go up a layer (insert 22) RR(30) causes the BF of 25 to be 1 and then BF of 20 to be 2, which requires additional rotation.
+
+
+             zig is left shape
+            zag is right shape
+
+            corner of zig zag or zag zig is the one that needs the rotation
+
