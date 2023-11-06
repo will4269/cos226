@@ -1,0 +1,201 @@
+quiz upcoming based upon 
+
+11/6 and 11/8 lecture
+
+B-Trees:
+
+Multi-way search trees:
+-so Far: BST (Binary search trees)
+-But recall generic tree class
+Any advantage to using these generic trees?
+
+Why use them?
+-Intuitevely: height h of balance tree O(logm(n))
+m=max number of children per node
+n=total number of nodes
+
+-have 0-n children per node
+  where m>2
+
+  Also: balancing might be easier
+
+  Managing a very large map (dictionart) stored in memory
+
+(a,b) tree
+
+  Multiway search tree
+1  a<=#of children<=b [per node]
+
+2  each node stores from a-1 to b-1 pieces of data
+
+  assume leaves are empty don't actually have to be presented
+
+Examples
+
+                              10
+                            /    \
+                          8       {20|60}
+                        /  \      /  | \
+                    {5|6}  {9}   15 40 70
+a=2
+b=3
+
+(a,b) -> 2,3 tree
+
+
+                                {10|18}
+                              /    |     \
+                           8       15     {20|60|80}
+                         /  \     /\          / | | \
+                    {5|6|7}  9  13   16      19 40 70 100
+
+2-4 tree
+
+min 2 kids
+max 4 kids
+passed rule 1
+
+min 1 keys
+max 3 keys
+passed rule 2
+
+2-2 is a BST
+
+
+
+definition:
+
+Multi-way search way
+
+2<=a<=(b+1)/2
+
+**THIS IS TO MAINTAIN BALANCE**
+
+nodes themselves contatin ordered map of size s
+a-1<=S<=b-1
+
+if node has keys k1,k2,k3,----,kl
+then:
+     first child contains all keys <k1
+     last child contains all keys >kl
+     middle children are those k1 < children < k2 or k2< children <k3 , ... kl-1< children <kl
+
+
+
+
+Size all nodes have c children where a<=C<=B
+
+Depth: h=O(loga(n))
+       h-Omega(logb(n))
+--------------------------------
+
+
+B-trees:
+        Bayer and MCoreight
+
+a=b/2
+
+example
+
+2,3
+or 
+2,3
+
+searching in B-tree:
+
+search for key at node with a-1 keys
+  -if key<k1 search subtree c0 {left sub}
+ -if key<kl search subtree cl (right sub)
+
+-if between ki and ki+1 check subtree ci (one of the others)
+
+                            10|18
+                  /           |                \
+                 8            15             30|60|80
+             /   \          /   \                 \
+          5|6|7   9       13    16                     90|100|110
+
+search 100 (greater than root, greater than 30,60,80, greater than 90, matches 100
+
+insert : 
+  1.search for key as if it exists
+  2. determine if there is space in the leaf for the new key, note that keys in the same node are sorted
+
+EX:
+            98
+            / \
+        55      Tree
+      /   \
+     34   75
+
+insert 84 {2,3 tree}
+
+            98
+            / \
+        55      Tree
+      /   \
+     34   75|84
+
+insert 26
+            98
+            / \
+        55      Tree
+      /   \
+  26|34   75|84
+
+insert 88
+{should go next to 84, but causes overflow {more than 2 keys per node}}
+
+if there is no space in the leaf for the new key we split the leaf and then promote the middle key to the parents level
+
+
+            98
+            / \
+        55      Tree
+      /   \
+   26|34   75|84
+
+            98
+            / \
+       55|84  Tree
+      /   |  \
+   26|34  75 88
+
+
+Example:
+
+                            10|18
+                  /           |                \
+                 8            15             20|60|80
+             /   \          /   \            /   |  |  \
+          5|6|7   9       13    16           19  40 70       90|100|110
+
+insert 3 {}
+
+2,4 tree
+
+aims to go to 5|6|7 path, no space max 3 keys
+
+    6|8
+  /  |  \
+3|5  7  9
+
+move 3rd from left
+
+promote a key in a 2-3 tree
+smallest x,k1,k2 (k1 up)
+middle k0,x,k2 (x up)
+last k0,k1,x (k1 up)
+
+splitting a parent node:
+
+if a parent overflows by promotion [maintain in order]
+
+exercise: insert 95
+
+                            10|18
+                  /           |                \
+                 8            15             20|60|80
+             /   \          /   \            /   |  |  \
+          5|6|7   9       13    16           19  40 70       90|100|110
+
