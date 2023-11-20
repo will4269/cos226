@@ -1,0 +1,179 @@
+heapify
+
+A=heap
+l=left(i)
+r=right(i)
+
+max_heapify();
+
+if l<=heap_size(A) and A(l) > A(i) // if L larger than i and in heap
+   then largest l
+   else largest i
+
+   //makes largest i or l
+if r<heap_size(A) amd A(r) > A(largest) //r larger than i and in heap 
+  then largest r
+  //resolves largest as i or l or r
+if target != i
+  exchange A[i]=A[largest]
+  return max_heapify(A, largest)
+
+  ------------------------
+  usage of heaps is to use max or min heaps to find max or min value in unsorted arrays
+
+  -------------------------
+  remove element
+
+  smallest | min_heap
+  largest | max_heap
+  in root we find smallest or largest in min_heap and max_heap
+
+  if removing root after taking max or min
+
+  use last value as new root, sort heap again
+
+  {right most lower level to root}
+  preserve binary tree 
+  heap property broken
+  heapify struct
+
+
+
+  min heap
+                                      2
+                              /                \
+                            3                    5
+                          /  \                  /  \                        
+                        4      6              7      15
+                      /   \     /\          /  \
+                    10     11 16   12       35 20
+    remove 2
+                                       _
+                              /                \
+                            3                    5
+                          /  \                  /  \                        
+                        4      6              7      15
+                      /   \     /\          /  \
+                    10     11 16   12       35 20
+      move 20 to root
+                                       20
+                              /                \
+                            3                    5
+                          /  \                  /  \                        
+                        4      6              7      15
+                      /   \     /\          /  \
+                    10     11 16   12       35 _
+
+heapify broken {fix}
+                                       3
+                              /                \
+                           20                    5
+                          /  \                  /  \                        
+                        4      6              7      15
+                      /   \     /\          /  \
+                    10     11 16   12       35 _
+
+                                       3
+                              /                \
+                            4                    5
+                          /  \                  /  \                        
+                        20      6              7      15
+                      /   \     /\          /  \
+                    10     11 16   12       35 _    
+
+                                       3
+                              /                \
+                            4                    5
+                          /  \                  /  \                        
+                        10      6              7      15
+                      /   \     /\          /  \
+                    20     11 16   12       35 _ 
+
+EX2
+
+max_heap
+                                 16
+               /                                  \
+              14                                  10
+            /  \                                 /  \
+          8      7                              9     3
+        /  \    /
+      2     4  1
+remove max key
+|remove root, index 1| 16
+                                 _
+               /                                  \
+              14                                  10
+            /  \                                 /  \
+          8      7                              9     3
+        /  \    /
+      2     4  1
+promote index 10 last index
+                                 1
+               /                                  \
+              14                                  10
+            /  \                                 /  \
+          8      7                              9     3
+        /  \    /
+      2     4  _
+fix
+                                 14
+               /                                  \
+              1                                  10
+            /  \                                 /  \
+          8      7                              9     3
+        /  \    /
+      2     4  _
+      -------------------------------------------------
+    
+                                 14
+               /                                  \
+              1                                  10
+            /  \                                 /  \
+          8      7                              9     3
+        /  \    /
+      2     4  _
+      -----------------------------------------------------
+                                14
+               /                                  \
+              8                                  10
+            /  \                                 /  \
+          1      7                              9     3
+        /  \    /
+      2     4  _
+      -----------------------------------------------------
+                                14
+               /                                  \
+              8                                  10
+            /  \                                 /  \
+          4      7                              9     3
+        /  \    /
+      2     1  _
+
+    *finished*
+
+
+time complexity
+
+add a node O(1)
+bubble up/down min/max heapify
+o(h)=o(long)
+deleting a node
+O(1) remove root
+O(1) promote last
+O(logn) heapify fix
+
+o(logn) total
+
+k operations
+O(klogn)
+
+-------------------
+why important 
+
+find or sort keys
+
+recursively grab the root
+
+increasing-min
+decreasing-max
