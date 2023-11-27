@@ -1,0 +1,239 @@
+Splay Tree:
+
+BST
+
+but simpler than AVL or red black
+
+invented by sleator & Tarjan
+
+Doesn't enforce O=0(logn)
+
+worst case is 0(n)
+
+amortized time for operations m is 0(mlogn)
+
+Splaying:
+
+more searched, inserted, or parent of deleted node to root via series of splaying operations.
+
+{moving a node somehwere in the tree to the root}
+
+---
+splaying node V it to the root via rotations
+
+directions depend on parent and grandparent of node
+
+Zig (RR)
+
+Parent is root (left child)
+
+Zag (LR)
+
+Parent is root (right child)
+
+Zig-Zig
+
+V is left-child of P is left-child of g
+
+all RR up RR(P)->RR(G)
+
+zig-zag
+
+V is left-child of p is right child of g
+
+etc
+
+----------------
+
+Splaying (again)
+
+start at some node, apply splay operations until node is root
+
+when to splay
+
+           Inserton: if v is inserted node: splay v-node to root
+           deletion: if v is a deleted node: splay its parent to root
+           -Searching:
+            -If found: splay node found to root
+            -If not found: splay node last scanned to root
+
+
+
+    
+
+
+
+  Ex:
+                   20
+                  /  \
+                10     30
+                        \
+                         40
+                           \
+                            50
+                          /   \
+                        45      60
+                              /
+                            55
+
+        find 55
+
+        20->30->40->50->60-<55
+
+        found it
+
+//Conflict//
+Zag is LR
+Zig is RR
+
+Zag-Zig
+
+60 RR
+50 LR
+
+check again
+
+zag-zag
+40 LR
+30 LR
+
+check again
+
+zag
+
+LR(20)
+
+
+EX2:
+                             55
+                            /  \
+                          20    60
+                        /  \   
+                       10   40
+                            /  \
+                          30   50
+                              /
+                            45
+                          /
+
+
+Insert 42
+
+                             55
+                            /  \
+                          20    60
+                        /  \   
+                       10   40
+                            /  \
+                          30   50
+                              /
+                            45
+                          /
+                        42
+
+    splay 42
+    zig-zig
+    RR(50)                             
+                             55
+                            /  \
+                          20    60
+                        /  \   
+                       10   40
+                            /  \
+                          30   45
+                              /  \
+                            42     50
+                        
+    RR(45)
+                             55
+                            /  \
+                          20    60
+                        /  \   
+                       10   40
+                            /  \
+                          30   42
+                                 \
+                                  45
+                                   \
+                                    50
+
+  check again
+
+  40=p
+  20=grandparent
+
+  zag-zag
+
+  lr(20)
+                             55
+                            /  \
+                          40    60
+                        /  \   
+                       20   42
+                    /    \     \
+                   10     30    45
+                                 \
+                                  50
+                                   
+                                  
+  
+  l2(40)
+                             55
+                            /  \
+                          42    60
+                        /  \   
+                      40   45
+                    /         \
+                   20           50
+                  /  \
+                10   30  
+
+
+      RR->zig RR(55)
+
+                           
+                            42
+                            /  \
+                          40     55
+                          /     /  \
+                        20      50  60
+                       /  \     /    
+                      10   30  45      
+      done
+
+
+      delete(25) 
+                           
+                            42
+                            /  \
+                          40     55
+                          /     /  \
+                        20      50  60
+                       /  \     /    
+                      10   30  45    
+
+        no 25, splay 30
+
+        zag-zig
+
+        LR(20)
+        RR(40)
+                            42
+                            /  \
+                          40     55
+                          /  \    /  \
+                        20         50  60
+                       /  \     /    
+                      10   30  45 
+        LR(20)
+
+        
+
+
+                
+                                 
+
+                        
+
+    
+                        42
