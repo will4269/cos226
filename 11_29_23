@@ -1,0 +1,122 @@
+merging heaps -> graphs
+
+2 heaps merging: Skew merging
+
+Compare roots of 2 heaps that are given
+
+Let H1 be the one with the smaller root, and H2 is the smaller heap 
+
+H is the name of the resultant new heap
+
+2)Let root of the H be the root of H1 (smallest root), let H's right subrtree be H1's left subtree
+
+3)now compute H's left subtree by using H1's right subtree and H2
+
+                                1                              13
+                              /  \                          /      \
+                            4      23                      17      93
+                          /  \   /   \                    / \     /  \
+                        63  24  44  28                   57  49 105   201
+                               [H1]                               [H2]
+
+                               create H
+
+root of H1 is root (1)
+
+left of H1 is right of H
+                               1
+                              /  \
+                                  4
+                                 /   \
+                                63    24
+
+compute left subtree with H2 and right side of H1
+
+{13 is removed from H2 as it is smaller than 23, insert its left as the right, continue on with branches of tree}
+
+
+
+
+
+
+
+
+
+
+Graphs
+
+G=(V,E)
+
+V=Set of vertices
+E=Set of Edges
+
+                             A
+                            / \
+                          B  - C
+                              /
+                            D
+V={A,B,C,D}
+E=AB,AC,BC,CD,DC,CB,CA,BA
+
+direction arrows limit edges
+
+
+
+
+
+
+Graph Representation:
+
+1 a Diagonal Matrix: Matrix is order nxn
+|V|=n
+with entries [0,1]
+
+   v1  v2  v3  vn
+v1 0   1   0    1
+
+v2 1  0    0    0
+
+v3 
+
+vn 1  0    0    0
+
+                            A
+                            / \
+                          B  - C
+                              /
+                            D
+
+                        4x4
+
+  A B C D
+A 0 1 1 0
+B 1 0 1 0
+C 1 1 0 1
+D 0 0 1 0
+
+Paths and cycles
+
+Path is set of edges to node A->D (AB,BC,CD) or (AC,CD)
+
+cycle os loops possible (AB,BC,CA)
+
+shortest path (SP)
+
+is associated to the weight of path in weighted graphs
+
+weights reolace path 0 or 1 with values such as 0-infinity to represent difficulty.
+
+                               1
+                              /  \
+                          13       4
+                         /  \     /   \
+                        23     17   63    24
+                       /  \   /  \
+                      28  44 57    49
+                    /
+                  99
+                /  \
+              105  205
+
+      For maximum case 
+      use the largest root for H (H1), use its left subtree as H1 right subtree
