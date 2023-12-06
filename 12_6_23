@@ -1,0 +1,47 @@
+Djikstra's Algorithim:
+
+3 main steps
+
+step1: define ser C, "cloud" of vertices, to initially be the empty set
+
+step2: at each iteration of the algorithim, we select a vertex V not in C with the smallest D[k] {shortest distance from source} label, and we pull V into C
+
+Step3: once new vertex V is pulled into C, then we update the label D[k] of each vertex that is neighbor {adjacent} to V and outside of C.
+
+EX: assume we have the weighted and directed graph G(V,E) as follows
+
+what is the minimum total weight to get Vertex V from Source node S
+
+B=bi directional
+u=up
+d=down
+l=left
+r=right
+
+1=source
+
+
+             1  -  r(50)  -  2  - r(10) - 3
+             |            /  |           /
+            B(10)  d(15)   B(20)   u(35),d(30)    
+            |    /            |  /
+             4  -  r(15)  -  5  - l(3) - 6
+
+
+
+    go through and use shortest path from source, then next shortest node of neighbors
+    Set C  | 2,3,4,5
+    ______________________
+    1 | inf,inf,inf,inf,inf [node 1 is source added it to cloud]
+    4 | 50 45 10 inf inf     [4 was the closest path weight 10, added to cloud]
+    5 | 50 45 10 25 inf     {ignore 4 this time as it is in C}
+    2 | 45 45 10 25 inf      {match case use either us 2 as smallest} [ignore 4,5]
+    3 | 45 45 10 35 inf
+    6 | 45 45 10 35 inf     can never reach 6 from 1
+
+    Djikstras algorithim fails on negative numbers
+
+    
+    
+    
+             
